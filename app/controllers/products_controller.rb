@@ -26,4 +26,10 @@ class ProductsController < ApplicationController
 	def edit
 		@product = Product.find_by_id(params[:id])
 	end
+
+	def update
+		current_params = params.require(:product).permit(:name, :description, :category, :sku, :wholesale, :retail)
+		@product.update_attributes(current_params)
+		redirect_to product_path
+	end
 end
