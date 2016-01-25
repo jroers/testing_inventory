@@ -1,0 +1,62 @@
+<section id='signup-form' class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <%= form_for :product, url: products_path do |f| %>
+        <fieldset>
+          <legend>New Product</legend>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Name</label>
+            <div class="col-md-8">
+              <%= f.text_field :name, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="description">Description</label>
+            <div class="col-md-8">
+              <%= f.text_area :description, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="category">Category</label>
+            <div class="col-md-8">
+              <%= f.text_field :category, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="sku">SKU</label>
+            <div class="col-md-8">
+              <%= f.text_field :sku, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="wholesale">Wholesale Price</label>
+            <div class="col-md-8">
+              <%= f.number_field :wholesale, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="retail">Retail Price</label>
+            <div class="col-md-8">
+              <%= f.number_field :retail, required: true, class: "form-control" %><br>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= f.submit "Create Product", class: "btn btn-success" %>
+            </div>
+          </div>
+          
+        </fieldset>
+      <% end %>
+
+    </div>
+  </div>
+</section>
