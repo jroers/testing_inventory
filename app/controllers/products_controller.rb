@@ -28,8 +28,14 @@ class ProductsController < ApplicationController
 	end
 
 	def update
+		@product = Product.find_by_id(params[:id])
 		current_params = params.require(:product).permit(:name, :description, :category, :sku, :wholesale, :retail)
-		@product.update_attributes(current_params)
-		redirect_to product_path
+		
+		if @product.update_attributes(current_params)
+			redirect_to product_path
+		else
+			flash[:error] = "Update failed. Please ensure all fields are appropriately entered."
+			redirect_to edit_product_path
+		end
 	end
 end
