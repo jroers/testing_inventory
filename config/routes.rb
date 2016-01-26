@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get '/products/:id/edit', to: 'products#edit', as: 'edit_product'
   patch '/products/:id', to: 'products#update'
   delete '/products/:id', to: 'products#destroy'
+  get '/products/:id/margin', to: 'products#margin', as: 'product_margin'
 end

@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe "methods" do
+	  describe "#margin" do
+	  	before do
+	  		@product = FactoryGirl.create(:product)
+	  		@retail_margin = (@product.retail - @product.wholesale) / @product.retail
+	  	end
+
+	  	it "yields the appropriate margin" do
+	  		expect(@product.margin).to eq(@retail_margin)
+	  	end
+	  end
+	end
 end
